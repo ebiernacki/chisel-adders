@@ -3,6 +3,7 @@ package AdderCircuits
 import chisel3._
 
 //Subtract 2 numbers using 2s Complement Addition
+//NOTE: This module takes the form of: a - b
 
 class Subtractor(n : Int) extends Module { 
     val io = IO(new Bundle{
@@ -14,26 +15,3 @@ class Subtractor(n : Int) extends Module {
 
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // val twos = Module(new TwosComplement(n))
-    // twos.io.in := io.b
-
-    // val rca = Module(new RippleCarryAdder(n))
-    
-
-    // rca.io.A := io.a
-    // rca.io.B := twos.io.out
-
-    // io.diff := rca.io.Sum

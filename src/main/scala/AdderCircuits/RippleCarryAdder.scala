@@ -19,6 +19,8 @@ import chisel3.util._
 * 
 * or
 * Cat("b101".U, "b11".U)  // equivalent to "b10111".U
+* 
+* You can also Cat().reverse, or toString, or shift with << >>
 */
 
 class RippleCarryAdder(n: Int) extends Module {
@@ -30,61 +32,7 @@ class RippleCarryAdder(n: Int) extends Module {
         val Cout  = Output(UInt(1.W))
     })
     
-
-    
+        
 
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// //vector for to hold all the sums (think of as array)
-//     val sums = VecInit(Seq.fill(n)(0.U(1.W))) 
-    
-//     //assume the initail carry is 0
-//     var currentCarry = 0.U
-
-//     for(i <- 0 to (n - 1)){
-//         val fAdd = Module(new FullAdder)
-//         fAdd.io.a := io.A(i)
-//         fAdd.io.b := io.B(i)
-//         fAdd.io.c_in := currentCarry
-//         sums((n-1) - i) := fAdd.io.sum //fill from back
-//         currentCarry = fAdd.io.c_out
-//     }
-
-//     io.Sum  := Cat(sums) // if you filled from front, you can reverse it here
-//     io.Cout := currentCarry 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

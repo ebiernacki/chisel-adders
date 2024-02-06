@@ -14,59 +14,6 @@ class FullAdder() extends Module {
     })   
 
 
-}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // // XOR gates for sum
-    // val sum  = io.a ^ io.b ^ io.c_in
-
-    // //and/or gates for cout ab + ac + bc
-    // val cout = (io.a & io.b) | (io.a & io.c_in) | (io.b & io.c_in)
-
-    // // Output assignment
-    // io.sum  := sum
-    // io.c_out := cout
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}

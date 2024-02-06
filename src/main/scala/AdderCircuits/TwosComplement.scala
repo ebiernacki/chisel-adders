@@ -16,26 +16,3 @@ class TwosComplement(n: Int) extends Module {
 
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// val rca = Module(new RippleCarryAdder(n))
-
-//     //invert
-//     rca.io.A := ~io.in
-
-//     //add 1
-//     rca.io.B := 1.U
-
-//     io.out := rca.io.Sum
