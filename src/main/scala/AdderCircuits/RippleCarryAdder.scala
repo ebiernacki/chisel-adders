@@ -32,7 +32,24 @@ class RippleCarryAdder(n: Int) extends Module {
         val Cout  = Output(UInt(1.W))
     })
     
-        
+    //vector for to hold all the sums (think of as array)
+    val sums = VecInit(Seq.fill(n)(0.U(1.W))) 
+
+    //assume the initail carry is 0
+    var currentCarry = 0.U
+
+    for(i <- 0 to (n - 1)){
+        val fAdd = Module(new FullAdder)
+        fAdd.io.a := io.A(i)
+        fAdd.io.b := io.B(i)
+        fAdd.io.c_in := currentCarry
+        sums(i) := fAdd.io.sum 
+        // io.Sum(i) := fAdd.io.sum
+        currentCarry = fAdd.io.c_out
+    }
+
+    io.Sum  := Cat(sums.reverse) //.asUInt // if you filled from front, you can reverse it here
+    io.Cout := currentCarry 
 
     
 }

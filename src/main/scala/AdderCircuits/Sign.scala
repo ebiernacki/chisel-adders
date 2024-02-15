@@ -18,4 +18,17 @@ class Sign(n : Int) extends Module {
     })  
 
 
+    val msb = io.input(n - 1)
+
+    var currOr = false.B
+
+
+    for(i <- 0 to (n - 1)){
+        currOr = currOr | io.input(i)
+    }
+
+    io.zero := !currOr  //!io.input.orR  //orR is one of chisels UInt bit-reduction methods -- see chisel cheat sheet
+    io.neg := msb
+    io.pos := !msb & currOr
+
 }

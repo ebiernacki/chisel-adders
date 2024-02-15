@@ -13,5 +13,19 @@ class Subtractor(n : Int) extends Module {
         val diff   = Output(UInt(n.W))
     })  
 
+
+    val twos = Module(new TwosComplement(n))
+    twos.io.in := io.b
+
+    val rca = Module(new RippleCarryAdder(n))
+
+
+    rca.io.A := io.a
+    rca.io.B := twos.io.out
+
+    io.diff := rca.io.Sum
+
+
+    //using -
     
 }
